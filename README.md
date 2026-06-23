@@ -1,66 +1,92 @@
 # IndusBrain AI: Unified Asset & Operations Brain
 
-**IndusBrain AI** is a premium, high-fidelity interactive prototype designed to address the critical knowledge fragmentation crisis in asset-intensive industries. Inspired by the 2024 McKinsey survey showing professionals waste 35% of their working hours searching for siloed details, this platform acts as a unified semantic brain connecting documents, specifications, regulations, and live telemetry.
+**IndusBrain AI** is a full-stack industrial knowledge intelligence platform that aggregates heterogeneous documents (P&IDs, engineering drawings, SOPs, OEM manuals, logs) and makes their collective intelligence queryable, actionable, and continuously updated.
 
 ---
 
-## 🚀 The Industrial Problem Context
-- **Siloed Systems:** Large plants typically operate across 7 to 12 disconnected document repositories (P&IDs, ERP, SAP, logs, emails, scans).
-- **Downtime:** 18–22% of unplanned downtime in heavy industry is driven by maintenance decisions made without complete asset history or context.
-- **The Knowledge Cliff:** 25% of experienced industrial operators are retiring this decade, taking undocumented operational experience with them.
+## 🛠️ Technology Stack
+
+- **Frontend:** Next.js 15, TypeScript, Tailwind CSS, Shadcn UI patterns, **React Flow** (for interactive Knowledge Graph visualization), and **Recharts** (for industrial KPI/silo metrics).
+- **Backend:** FastAPI (Python), LangChain, Neo4j, ChromaDB, and Tesseract OCR integration.
+- **AI Engine:** Gemini API / OpenAI API integration (with local offline fallback models).
 
 ---
 
-## 🛠️ Feature Modules
+## 📂 Project Structure
 
-### 1. Unified Operations Dashboard
-- **Aggregate Metrics:** Monitors ingested document count, active knowledge graph nodes, safety compliance score, and unplanned downtime.
-- **Critical Warning Stream:** Alerts operators to sticking valves, overdue safety certifications, and links details directly to SOPs or drawings.
-- **Silo Coverage Meter:** Inspects integration percentages across historical data storage spaces.
-
-### 2. Universal Ingestion & Interactive Knowledge Graph
-- **Canvas Physics Simulation:** Built using a custom 2D force-directed physics engine. Nodes represent Assets, Docs, Regulations, and Events. Drag, hover, zoom, and click nodes to open relation-manifest sidebars.
-- **OCR Tag Extraction:** Drop any document (PDF/Scan) to trigger a simulated multimodal OCR layout extraction (LayoutLMv3/PaddleOCR format) and watch it **automatically spawn new nodes and links in the live graph**!
-
-### 3. Expert Knowledge Copilot (Desktop & Field Mobile)
-- **RAG-Powered Chat:** Answers complex maintenance, operations, and compliance queries with clickable citations and confidence metrics.
-- **Rugged Field Mobile View:** Toggle viewport to wrap the interface in a shockproof field tablet layout with voice command and barcode scanner mockups.
-
-### 4. Maintenance Diagnostics & RCA Agent
-- **Asset Profiles:** Check detailed telemetry logs for `PMP-101` (Pump), `VLV-204` (Valve), and `BLR-302` (Boiler).
-- **RCA Diagram Generator:** Input logged incidents to compile a **5-Whys Chain** and render a graphic **Ishikawa (Fishbone) Diagram** detailing Manpower, Machine, Method, and Material causes alongside CAPA items.
-
-### 5. Quality & Regulatory Compliance Intelligence
-- **Regulatory Gap Auditor:** Flags active compliance breaches (OISD, PESO, Indian Factory Act 1948).
-- **Evidence Package Compiler:** Aggregates SOPs, logs, and manuals into a verified audit bundle with SHA-256 checksums, ready to download.
-
-### 6. Lessons Learned & Failure Intelligence
-- **Failure Heatmap:** Interactive correlation matrix mapping component issues (shafts, tubes, seals) to physical variables (vibration, heat, viscosity).
-- **Proactive Bulletins:** Automatically parses external safety databases to warn crews of scaling risk patterns.
+```
+industrial_brain/
+├── frontend/                 # Next.js 15 App Router
+│   ├── src/
+│   │   ├── app/              # Main page and layout (consolidated React Flow logic)
+│   │   └── components/       # Custom React widgets
+│   ├── package.json          # Node dependencies
+│   └── tailwind.config.ts    # Styling settings
+├── backend/                  # FastAPI Application
+│   ├── app/
+│   │   ├── main.py           # FastAPI Entry point & endpoints
+│   │   └── services/         # OCR, Neo4j Graph, ChromaDB Vector, and LangChain Agent
+│   └── requirements.txt      # Python dependencies
+├── .gitignore                # Root gitignore
+└── README.md                 # Running guidelines (This file)
+```
 
 ---
 
-## 💻 Technology Stack
-- **Frontend:** Semantic HTML5, Vanilla CSS3 (custom variables, glassmorphic layout rules, CSS grids), ES6 Vanilla JS.
-- **Vector Icons:** Lucide Icons (loaded via CDN).
-- **Graph & Diagrams:** HTML5 Canvas API (custom force-directed rendering loops and Fishbone charts).
-- **Development Server:** Python-based HTTP server.
+## 🏃 Getting Started
 
----
-
-## 🏃 Local Run Instructions
-
-1. **Verify Python is installed:**
+### 1. Backend Setup (FastAPI)
+1. Navigate to the `backend` folder:
    ```bash
-   python --version
+   cd backend
    ```
-
-2. **Start the local server:**
-   Navigate to the project folder and run:
+2. Create and activate a Python virtual environment:
    ```bash
-   python server.py
+   python -m venv venv
+   # On Windows:
+   venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
    ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Run the FastAPI development server:
+   ```bash
+   uvicorn app.main:app --reload --port 8000
+   ```
+   The backend will be available at [http://localhost:8000](http://localhost:8000) (Interactive Swagger documentation is available at [http://localhost:8000/docs](http://localhost:8000/docs)).
 
-3. **View the application:**
-   Open your browser and navigate to:
-   [http://localhost:8000](http://localhost:8000)
+---
+
+### 2. Frontend Setup (Next.js 15)
+1. Navigate to the `frontend` folder:
+   ```bash
+   cd frontend
+   ```
+2. Install npm dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the Next.js development server:
+   ```bash
+   npm run dev
+   ```
+   Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to view the dashboard!
+
+---
+
+## 💡 Environment Configuration
+Create a `.env` file in the `backend/` folder to enable real database connections:
+```env
+# LangChain & LLM APIs
+OPENAI_API_KEY=your_openai_api_key
+GEMINI_API_KEY=your_gemini_api_key
+
+# Neo4j Graph Database
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=password
+```
+*(If no API keys are provided, the backend automatically falls back to offline mock algorithms so the prototype remains 100% stable out-of-the-box.)*
