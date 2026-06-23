@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndusBrain AI - Unified Asset & Operations Brain</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dark-theme">
+    <!-- App Container -->
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-icon">
+                    <i data-lucide="cpu" class="neon-cyan-glow"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>IndusBrain<span>AI</span></h1>
+                    <span class="sub-brand">Unified Industrial Brain</span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-tab="dashboard">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="ingest-graph">
+                    <i data-lucide="network"></i>
+                    <span>Ingest & Graph</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="copilot">
+                    <i data-lucide="message-square-code"></i>
+                    <span>Expert Copilot</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="maintenance">
+                    <i data-lucide="wrench"></i>
+                    <span>Maintenance & RCA</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="compliance">
+                    <i data-lucide="shield-check"></i>
+                    <span>Compliance & Quality</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="lessons">
+                    <i data-lucide="brain-circuit"></i>
+                    <span>Failure Intel</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="presentation">
+                    <i data-lucide="presentation"></i>
+                    <span>Pitch & Architecture</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="plant-status-widget">
+                    <div class="status-indicator online"></div>
+                    <div class="status-text">
+                        <span class="status-title">Jamnagar Refinery #3</span>
+                        <span class="status-sub">Operations: NORMAL</span>
+                    </div>
+                </div>
+                <div class="user-profile">
+                    <i data-lucide="user" class="avatar"></i>
+                    <div class="user-info">
+                        <span class="username">Pooja Sharma</span>
+                        <span class="role">Chief Reliability Eng.</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header Bar -->
+            <header class="top-header">
+                <div class="header-search">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="global-search" placeholder="Search Tag (e.g. PMP-101), Doc, Standard or Procedure...">
+                    <span class="keyboard-shortcut">⌘K</span>
+                </div>
+                <div class="header-actions">
+                    <div class="metric-indicator">
+                        <i data-lucide="clock" class="text-muted"></i>
+                        <span>Uptime: <strong class="neon-green">99.84%</strong></span>
+                    </div>
+                    <div class="notification-bell dropdown-trigger">
+                        <i data-lucide="bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <button class="theme-toggle">
+                        <i data-lucide="sun" class="sun-icon"></i>
+                        <i data-lucide="moon" class="moon-icon hidden"></i>
+                    </button>
+                    <div class="live-clock" id="live-clock">14:27:34 PM</div>
+                </div>
+            </header>
+
+            <!-- Active View Containers -->
+            <div class="view-viewport">
+                
+                <!-- DASHBOARD TAB -->
+                <section id="dashboard" class="view-section active">
+                    <div class="view-header">
+                        <div>
+                            <h2>Unified Operations Dashboard</h2>
+                            <p class="view-description">Continuous aggregation of plant intelligence across 12 legacy document silos.</p>
+                        </div>
+                        <div class="quick-dates">
+                            <span class="badge-pill">Shift A (06:00 - 14:00)</span>
+                            <span class="badge-pill active">Shift B (14:00 - 22:00)</span>
+                        </div>
+                    </div>
+
+                    <!-- Grid KPIs -->
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-icon bg-cyan-soft">
+                                <i data-lucide="file-text" class="text-cyan"></i>
+                            </div>
+                            <div class="kpi-data">
+                                <span class="kpi-label">Ingested Documents</span>
+                                <h3 class="kpi-value" id="count-docs">12,842</h3>
+                                <span class="kpi-trend positive"><i data-lucide="trending-up"></i> +142 this week</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon bg-purple-soft">
+                                <i data-lucide="git-branch" class="text-purple"></i>
+                            </div>
+                            <div class="kpi-data">
+                                <span class="kpi-label">Knowledge Graph Nodes</span>
+                                <h3 class="kpi-value" id="count-nodes">85,291</h3>
+                                <span class="kpi-trend positive"><i data-lucide="trending-up"></i> +1,104 entities linked</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon bg-emerald-soft">
+                                <i data-lucide="activity" class="text-emerald"></i>
+                            </div>
+                            <div class="kpi-data">
+                                <span class="kpi-label">Safety Compliance Score</span>
+                                <h3 class="kpi-value">98.6%</h3>
+                                <span class="kpi-trend neutral"><i data-lucide="minus"></i> 0 compliance breaches</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon bg-orange-soft">
+                                <i data-lucide="alert-triangle" class="text-orange"></i>
+                            </div>
+                            <div class="kpi-data">
+                                <span class="kpi-label">Unplanned Downtime (YTD)</span>
+                                <h3 class="kpi-value">2.4%</h3>
+                                <span class="kpi-trend positive text-emerald"><i data-lucide="trending-down"></i> -18.2% vs. 2025 avg</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Dashboard Main Rows -->
+                    <div class="dashboard-row">
+                        <!-- Left Main Panel: Intelligence Feed & Telemetry -->
+                        <div class="dashboard-col col-7">
+                            <div class="panel">
+                                <div class="panel-header">
+                                    <h3>Critical Warnings & Actionable Insights</h3>
+                                    <span class="tag tag-red">Active System Monitor</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="bulletin-list">
+                                        <div class="bulletin-item warning">
+                                            <div class="bulletin-icon">
+                                                <i data-lucide="alert-circle"></i>
+                                            </div>
+                                            <div class="bulletin-content">
+                                                <h4>Valve VLV-204 Sticking Risk Flagged</h4>
+                                                <p>Copilot matched work orders with OEM manual Page 47. Current operation logs show a temperature delta of +12°C. Risk of safety latch failure in next 72 hours.</p>
+                                                <div class="bulletin-footer">
+                                                    <span class="source"><i data-lucide="file"></i> Valve_OEM_Guide_v3.pdf</span>
+                                                    <span class="action-link" onclick="app.showRCA('VLV-204')">Analyze Failure Path &rarr;</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bulletin-item info">
+                                            <div class="bulletin-icon">
+                                                <i data-lucide="shield-alert"></i>
+                                            </div>
+                                            <div class="bulletin-content">
+                                                <h4>Factory Act 2024 Audit Prep Gap</h4>
+                                                <p>Boiler BLR-302 safety valve certification expires in 12 days. Standard Operating Procedure (SOP_Boiler_v4.pdf) requires hydrostatic tests 10 days prior.</p>
+                                                <div class="bulletin-footer">
+                                                    <span class="source"><i data-lucide="file-check"></i> SOP_Boiler_v4.pdf</span>
+                                                    <span class="action-link" onclick="app.switchTab('compliance')">View Compliance Gaps &rarr;</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bulletin-item success">
+                                            <div class="bulletin-icon">
+                                                <i data-lucide="check-circle2"></i>
+                                            </div>
+                                            <div class="bulletin-content">
+                                                <h4>Pump PMP-101 Health Restored</h4>
+                                                <p>Maintenance executed. Inspection log uploaded and parsed. Automatic entity linkage successfully bound Job Record #JO-88321 to PMP-101 and P&ID #PID-ENG-442.</p>
+                                                <div class="bulletin-footer">
+                                                    <span class="source"><i data-lucide="database"></i> Job_Order_JO-88321.xlsx</span>
+                                                    <span class="action-link" onclick="app.focusGraphNode('PMP-101')">View in Graph &rarr;</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Silo Aggregation Meter -->
+                        <div class="dashboard-col col-5">
+                            <div class="panel">
+                                <div class="panel-header">
+                                    <h3>Silo Integration Coverage</h3>
+                                    <span class="info-tooltip" title="Percent of data successfully integrated from local databases into the Unified Graph"><i data-lucide="help-circle"></i></span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="silo-meter-list">
+                                        <div class="silo-meter-item">
+                                            <div class="silo-info">
+                                                <span>P&IDs & Engineering Drawings</span>
+                                                <strong>95%</strong>
+                                            </div>
+                                            <div class="silo-progress-bar">
+                                                <div class="silo-fill bg-cyan" style="width: 95%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="silo-meter-item">
+                                            <div class="silo-info">
+                                                <span>Maintenance Work Orders</span>
+                                                <strong>89%</strong>
+                                            </div>
+                                            <div class="silo-progress-bar">
+                                                <div class="silo-fill bg-purple" style="width: 89%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="silo-meter-item">
+                                            <div class="silo-info">
+                                                <span>Operating Procedures (SOPs)</span>
+                                                <strong>100%</strong>
+                                            </div>
+                                            <div class="silo-progress-bar">
+                                                <div class="silo-fill bg-emerald" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="silo-meter-item">
+                                            <div class="silo-info">
+                                                <span>OEM Manuals & Tech Specs</span>
+                                                <strong>72%</strong>
+                                            </div>
+                                            <div class="silo-progress-bar">
+                                                <div class="silo-fill bg-orange" style="width: 72%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="silo-meter-item">
+                                            <div class="silo-info">
+                                                <span>Regulatory Codes (PESO/OISD)</span>
+                                                <strong>90%</strong>
+                                            </div>
+                                            <div class="silo-progress-bar">
+                                                <div class="silo-fill bg-blue" style="width: 90%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="silo-summary-box">
+                                        <i data-lucide="check-square" class="text-emerald"></i>
+                                        <p>Cross-silo connections created: <strong>42,891 relationships</strong> (average time-to-link: 1.2s via AI agent).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- INGEST & GRAPH TAB -->
+                <section id="ingest-graph" class="view-section">
+                    <div class="view-header">
+                        <div>
+                            <h2>Universal Document Ingestion & Knowledge Graph</h2>
+                            <p class="view-description">Ingest raw files. Watch the AI agent extract tags, match entities, and link them to the active Knowledge Graph.</p>
+                        </div>
+                    </div>
+
+                    <div class="ingest-graph-layout">
+                        <!-- Left Panel: Ingest & Upload Controls -->
+                        <div class="ingest-panel">
+                            <!-- Drag & Drop Zone -->
+                            <div class="upload-zone" id="upload-zone">
+                                <i data-lucide="upload-cloud" class="upload-icon text-cyan"></i>
+                                <h3>Upload Industrial Documents</h3>
+                                <p>Drag & drop PDFs, scans, DWG, CSV, or Emails here</p>
+                                <span class="upload-btn">Browse Files</span>
+                                <input type="file" id="file-input" class="hidden" multiple>
+                            </div>
+
+                            <!-- Upload Queue & Extraction Console -->
+                            <div class="console-panel">
+                                <div class="console-header">
+                                    <span>Real-time Extraction Console</span>
+                                    <span class="pulse-indicator"></span>
+                                </div>
+                                <div class="console-body" id="extraction-console">
+                                    <div class="console-line system"><span class="timestamp">[14:26:42]</span> System initialized. Awaiting new document streams.</div>
+                                    <div class="console-line system"><span class="timestamp">[14:26:45]</span> Pre-indexing 12,842 files from Jamnagar Sharepoint archive complete.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Interactive Canvas Graph -->
+                        <div class="graph-panel">
+                            <div class="graph-toolbar">
+                                <div class="toolbar-search">
+                                    <i data-lucide="filter"></i>
+                                    <input type="text" id="graph-search" placeholder="Search node in graph...">
+                                </div>
+                                <div class="graph-filters">
+                                    <button class="filter-chip active" data-type="all">All</button>
+                                    <button class="filter-chip" data-type="asset"><span class="dot asset"></span>Assets</button>
+                                    <button class="filter-chip" data-type="document"><span class="dot document"></span>Docs</button>
+                                    <button class="filter-chip" data-type="regulatory"><span class="dot regulatory"></span>Codes</button>
+                                    <button class="filter-chip" data-type="incident"><span class="dot incident"></span>Incidents</button>
+                                </div>
+                                <div class="graph-controls">
+                                    <button id="zoom-in" title="Zoom In"><i data-lucide="zoom-in"></i></button>
+                                    <button id="zoom-out" title="Zoom Out"><i data-lucide="zoom-out"></i></button>
+                                    <button id="zoom-reset" title="Recenter Graph"><i data-lucide="maximize"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Canvas Container -->
+                            <div class="canvas-container">
+                                <canvas id="graph-canvas"></canvas>
+                                <div class="graph-legend">
+                                    <span><span class="dot asset"></span> Asset (Tag)</span>
+                                    <span><span class="dot document"></span> Document (SOP/Manual)</span>
+                                    <span><span class="dot regulatory"></span> Regulation (PESO/OISD)</span>
+                                    <span><span class="dot incident"></span> Event (RCA/Job Order)</span>
+                                </div>
+                            </div>
+
+                            <!-- Selected Node Detail Sidebar -->
+                            <div class="node-detail-overlay" id="node-detail-overlay">
+                                <button class="close-overlay" id="close-overlay-btn">&times;</button>
+                                <div class="overlay-header">
+                                    <div class="node-icon-wrapper" id="overlay-node-icon">
+                                        <i data-lucide="cpu"></i>
+                                    </div>
+                                    <div>
+                                        <h3 id="overlay-node-title">Feed Pump PMP-101</h3>
+                                        <span class="node-type-badge" id="overlay-node-type">ASSET</span>
+                                    </div>
+                                </div>
+                                <div class="overlay-body">
+                                    <div class="meta-section">
+                                        <h4>Asset Details</h4>
+                                        <table class="meta-table" id="overlay-node-meta">
+                                            <tr><td>Location</td><td>Plant 3, Sector A</td></tr>
+                                            <tr><td>Health Score</td><td>85%</td></tr>
+                                        </table>
+                                    </div>
+                                    <div class="relations-section">
+                                        <h4>Linked Relationships (<span id="overlay-relations-count">0</span>)</h4>
+                                        <div class="relations-list" id="overlay-relations-list">
+                                            <!-- Dynamically filled -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- COPILOT TAB -->
+                <section id="copilot" class="view-section">
+                    <div class="view-header">
+                        <div>
+                            <h2>Expert Knowledge Copilot</h2>
+                            <p class="view-description">Ask complex engineering, operations, or regulatory questions. Get answers backed by sources, citations, and risk-profiles.</p>
+                        </div>
+                        <!-- Toggle Desktop vs Mobile mockup -->
+                        <div class="copilot-view-toggle">
+                            <span class="toggle-label">Select Workspace View:</span>
+                            <div class="segmented-control">
+                                <button class="seg-btn active" id="view-desktop">
+                                    <i data-lucide="monitor"></i> Desktop Engineer
+                                </button>
+                                <button class="seg-btn" id="view-mobile">
+                                    <i data-lucide="smartphone"></i> Rugged Field Tablet
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dual layout container depending on selection -->
+                    <div class="copilot-layout-container" id="copilot-container">
+                        
+                        <!-- DESKTOP COPILOT VIEW -->
+                        <div class="copilot-desktop-layout" id="desktop-copilot">
+                            <!-- Left Sidebar: Quick Prompts & History -->
+                            <div class="copilot-sidebar">
+                                <div class="copilot-sidebar-section">
+                                    <h4>Suggested Engineering Queries</h4>
+                                    <div class="quick-queries">
+                                        <button class="quick-query-btn" data-query="What is the start-up sequence for Feed Pump PMP-101?">
+                                            <i data-lucide="play-circle"></i> Start-up procedure for PMP-101
+                                        </button>
+                                        <button class="quick-query-btn" data-query="Which OISD regulations apply to hot work permits on Jamnagar plant tanks?">
+                                            <i data-lucide="shield-check"></i> OISD rules for Hot Work
+                                        </button>
+                                        <button class="quick-query-btn" data-query="Show me the failure history and root cause summary for Control Valve VLV-204.">
+                                            <i data-lucide="history"></i> Failures & RCA for VLV-204
+                                        </button>
+                                        <button class="quick-query-btn" data-query="What is the torque specification for the flange bolts on Heat Exchanger HEX-902?">
+                                            <i data-lucide="wrench"></i> Flange torque for HEX-902
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="copilot-sidebar-section">
+                                    <h4>Source Document Libraries Checked</h4>
+                                    <div class="library-checked-list">
+                                        <label><input type="checkbox" checked disabled> OISD Standards (OISD-189, 105)</label>
+                                        <label><input type="checkbox" checked disabled> OEM Operation Handbooks</label>
+                                        <label><input type="checkbox" checked disabled> Plant SOPs (Mechanical & Safety)</label>
+                                        <label><input type="checkbox" checked disabled> Maintenance Incident Reports (2020-2026)</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Side: Chat Area -->
+                            <div class="copilot-chat-area">
+                                <div class="chat-messages-container" id="desktop-chat-messages">
+                                    <div class="message assistant">
+                                        <div class="message-avatar"><i data-lucide="bot"></i></div>
+                                        <div class="message-bubble">
+                                            <p>Hello! I am your Industrial Expert Knowledge Copilot. I scan across all drawings, procedures, OEM manuals, and compliance regulations to give you cited, actionable insights.</p>
+                                            <p>How can I help you today?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="chat-input-bar">
+                                    <input type="text" id="desktop-chat-input" placeholder="Ask a question about procedures, specifications, compliance, safety clearances...">
+                                    <button class="chat-send-btn" id="desktop-send-btn"><i data-lucide="send"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MOBILE COPILOT VIEW (RUGGED TABLET WRAPPER) -->
+                        <div class="copilot-mobile-layout hidden" id="mobile-copilot">
+                            <div class="tablet-frame">
+                                <div class="tablet-header">
+                                    <div class="tablet-camera"></div>
+                                    <div class="tablet-bar">
+                                        <span><i data-lucide="wifi"></i> LTE-R (SafeNetwork)</span>
+                                        <span>Ex-Zone II Intrinsically Safe</span>
+                                        <span>84% <i data-lucide="battery"></i></span>
+                                    </div>
+                                </div>
+                                <div class="tablet-screen">
+                                    <div class="app-header-mobile">
+                                        <i data-lucide="menu"></i>
+                                        <span>IndusBrain Mobile Field-App</span>
+                                        <i data-lucide="scan"></i>
+                                    </div>
+                                    <div class="field-tech-top-bar">
+                                        <div class="tech-badge">
+                                            <i data-lucide="user"></i> Tech: Pooja Sharma
+                                        </div>
+                                        <div class="tech-mode red">
+                                            <i data-lucide="radio"></i> Active Shift Mode
+                                        </div>
+                                    </div>
+
+                                    <!-- Quick Scan/Audio controls -->
+                                    <div class="mobile-controls-row">
+                                        <button class="mobile-tool-btn" id="voice-input-btn">
+                                            <i data-lucide="mic"></i> Talk to Copilot
+                                        </button>
+                                        <button class="mobile-tool-btn" id="scan-qr-btn">
+                                            <i data-lucide="qr-code"></i> Scan Asset QR
+                                        </button>
+                                    </div>
+
+                                    <div class="mobile-chat-body" id="mobile-chat-messages">
+                                        <div class="message assistant">
+                                            <div class="message-bubble">
+                                                <p>Field Copilot active. Scan an asset bar-code/QR or ask operations questions. Optimized for high-glare displays and audio read-out.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mobile-chat-input">
+                                        <input type="text" id="mobile-chat-input-text" placeholder="Speak or type (e.g. 'Safety steps for PMP-101')">
+                                        <button class="mobile-send-btn" id="mobile-send-btn"><i data-lucide="send"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- MAINTENANCE & RCA TAB -->
+                <section id="maintenance" class="view-section">
+                    <div class="view-header">
+                        <div>
+                            <h2>Maintenance Intelligence & Root Cause Analysis (RCA)</h2>
+                            <p class="view-description">Analyze equipment failure correlations and generate graphical 5-Whys and Ishikawa (Fishbone) analysis.</p>
+                        </div>
+                    </div>
+
+                    <div class="maintenance-layout">
+                        <!-- Left Side: Asset Selector & Health Metrics -->
+                        <div class="asset-selector-panel">
+                            <h3>Select Asset Profile</h3>
+                            <div class="asset-list-cards">
+                                <div class="asset-profile-card active" data-asset="PMP-101">
+                                    <div class="asset-card-top">
+                                        <h4>Feed Pump PMP-101</h4>
+                                        <span class="status-indicator yellow"></span>
+                                    </div>
+                                    <div class="asset-card-details">
+                                        <span>Type: Centrifugal Pump</span>
+                                        <span>Health Index: <strong>85%</strong></span>
+                                        <span>Last Work Order: 14 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="asset-profile-card" data-asset="VLV-204">
+                                    <div class="asset-card-top">
+                                        <h4>Control Valve VLV-204</h4>
+                                        <span class="status-indicator orange"></span>
+                                    </div>
+                                    <div class="asset-card-details">
+                                        <span>Type: Pneumatic Actuator</span>
+                                        <span>Health Index: <strong>68%</strong></span>
+                                        <span>Last Work Order: 34 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="asset-profile-card" data-asset="BLR-302">
+                                    <div class="asset-card-top">
+                                        <h4>Boiler BLR-302</h4>
+                                        <span class="status-indicator green"></span>
+                                    </div>
+                                    <div class="asset-card-details">
+                                        <span>Type: High Pressure Boiler</span>
+                                        <span>Health Index: <strong>94%</strong></span>
+                                        <span>Last Work Order: 180 days ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Diagnostics, Predictions & RCA Panel -->
+                        <div class="diagnostics-panel">
+                            <div class="panel-tab-headers">
+                                <button class="diag-tab active" data-diag-tab="overview">Asset Health Overview</button>
+                                <button class="diag-tab" data-diag-tab="rca" id="rca-tab-btn">Root Cause Analysis (RCA)</button>
+                            </div>
+
+                            <div class="diag-tab-content active" id="diag-overview">
+                                <div class="asset-kpis">
+                                    <div class="small-kpi">
+                                        <span class="label">Vibration (axial)</span>
+                                        <strong class="value text-emerald" id="val-vibe">1.2 mm/s</strong>
+                                    </div>
+                                    <div class="small-kpi">
+                                        <span class="label">Bearing Temp</span>
+                                        <strong class="value text-orange" id="val-temp">74.2 °C</strong>
+                                    </div>
+                                    <div class="small-kpi">
+                                        <span class="label">Flow Rate</span>
+                                        <strong class="value text-emerald" id="val-flow">185 m³/h</strong>
+                                    </div>
+                                </div>
+
+                                <div class="prediction-alert-box">
+                                    <div class="p-header">
+                                        <i data-lucide="target" class="text-orange animate-pulse"></i>
+                                        <h4>AI Predictive Maintenance Recommendation</h4>
+                                    </div>
+                                    <p id="predictive-rec">Vibration and bearing temperature correlations predict potential cavitation and bearing seal wear in the next 180 operating hours. Recommended action: schedule alignment verification and seal lubrication.</p>
+                                </div>
+
+                                <div class="timeline-box">
+                                    <h4>Asset Operations Timeline</h4>
+                                    <div class="timeline-list" id="asset-timeline">
+                                        <!-- Dynamically filled -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="diag-tab-content" id="diag-rca">
+                                <div class="rca-config-box">
+                                    <div class="form-row">
+                                        <label for="rca-incident-select">Select Logged Incident:</label>
+                                        <select id="rca-incident-select">
+                                            <option value="pmp-leak">PMP-101 Shaft Seal Leakage & High Temp (14 Days Ago)</option>
+                                            <option value="vlv-stick">VLV-204 Pneumatic Actuation Sticking & Pressure Drop (Active)</option>
+                                            <option value="blr-tube">BLR-302 Superheater Tube Leakage (8 Months Ago)</option>
+                                        </select>
+                                        <button class="btn btn-cyan" id="btn-generate-rca">Run AI Cause Analysis</button>
+                                    </div>
+                                </div>
+
+                                <div class="rca-visual-container">
+                                    <!-- 5 Whys visual -->
+                                    <div class="rca-sub-section">
+                                        <h4>AI 5-Whys Chain Analysis</h4>
+                                        <div class="whys-flow" id="whys-flow-container">
+                                            <!-- Filled dynamically -->
+                                        </div>
+                                    </div>
+
+                                    <!-- Ishikawa Diagram visual -->
+                                    <div class="rca-sub-section">
+                                        <h4>Ishikawa (Fishbone) Diagram</h4>
+                                        <div class="fishbone-scroll-wrapper">
+                                            <div class="fishbone-canvas-container">
+                                                <canvas id="fishbone-canvas" width="700" height="350"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="rca-recommendations">
+                                        <h4>Systemic Corrective Actions (CAPA)</h4>
+                                        <ul id="rca-capa-list">
+                                            <!-- Filled dynamically -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- COMPLIANCE & QUALITY TAB -->
+                <section id="compliance" class="view-section">
+                    <div class="view-header">
+                        <div>
+                            <h2>Quality & Regulatory Compliance Intelligence</h2>
+                            <p class="view-description">Map regulatory requirements (Factory Act, OISD, PESO) against current plant operating procedures, inspections, and states.</p>
+                        </div>
+                    </div>
+
+                    <div class="compliance-layout">
+                        <!-- Left Panel: Gap Audit Monitor -->
+                        <div class="compliance-column-left">
+                            <div class="panel">
+                                <div class="panel-header">
+                                    <h3>Identified Regulatory Gaps & Risks</h3>
+                                    <span class="badge-pill bg-orange-soft text-orange">3 Attention Required</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="compliance-gaps-list">
+                                        <div class="gap-card high">
+                                            <div class="gap-card-header">
+                                                <span class="severity high">CRITICAL</span>
+                                                <span class="reg-body">OISD-189</span>
+                                            </div>
+                                            <h4>Boiler safety valve relief testing cycle overdue by 12 days.</h4>
+                                            <p>OISD-189 Clause 6.2 dictates physical test certifications must occur every 12 months. Last certified: June 11, 2025.</p>
+                                            <div class="gap-footer">
+                                                <span>Impact: <strong>BLR-302</strong></span>
+                                                <button class="btn btn-sm btn-outline" onclick="app.generateEvidence('BLR-302', 'OISD-189')">Draft Test Request</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="gap-card medium">
+                                            <div class="gap-card-header">
+                                                <span class="severity medium">MEDIUM</span>
+                                                <span class="reg-body">PESO Act</span>
+                                            </div>
+                                            <h4>Missing flame arrester certificate on tank T-104 inspection record.</h4>
+                                            <p>Petroleum and Explosives Safety Organisation (PESO) regulations require verified maintenance logs of fire arresters in Class A storage zones. Drawing shows installation, but inspection record is missing.</p>
+                                            <div class="gap-footer">
+                                                <span>Impact: <strong>Tank T-104</strong></span>
+                                                <button class="btn btn-sm btn-outline" onclick="app.generateEvidence('T-104', 'PESO')">Resolve Missing Doc</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="gap-card low">
+                                            <div class="gap-card-header">
+                                                <span class="severity low">LOW</span>
+                                                <span class="reg-body">Factory Act</span>
+                                            </div>
+                                            <h4>Lighting level (Lux) records not logged in Zone C compressor house.</h4>
+                                            <p>Section 35 of the Indian Factory Act, 1948 requires quarterly documentation of industrial lighting. Last entry: 95 days ago.</p>
+                                            <div class="gap-footer">
+                                                <span>Impact: <strong>Zone C Compressor</strong></span>
+                                                <button class="btn btn-sm btn-outline" onclick="app.generateEvidence('ZoneC', 'Factory Act')">Record Lux Log</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Evidence Generator -->
+                        <div class="compliance-column-right">
+                            <div class="panel">
+                                <div class="panel-header">
+                                    <h3>Audit Evidence Package Generator</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>Select target asset and regulation standard to compile a certified compliance pack (aggregates drawings, active calibration logs, certificates, and SOPs into an auditable document bundle).</p>
+                                    
+                                    <div class="evidence-form">
+                                        <div class="form-group">
+                                            <label for="ev-asset">Select Target Asset:</label>
+                                            <select id="ev-asset">
+                                                <option value="PMP-101">Feed Pump PMP-101</option>
+                                                <option value="BLR-302">Boiler BLR-302</option>
+                                                <option value="VLV-204">Control Valve VLV-204</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ev-reg">Select Regulatory Framework:</label>
+                                            <select id="ev-reg">
+                                                <option value="OISD">OISD (Oil Industry Safety Directorate)</option>
+                                                <option value="PESO">PESO (Petroleum & Explosives Safety Organisation)</option>
+                                                <option value="Factory">Factory Act, 1948</option>
+                                            </select>
+                                        </div>
+
+                                        <button class="btn btn-cyan btn-block" id="btn-generate-evidence">
+                                            <i data-lucide="package"></i> Generate Audit Evidence Package
+                                        </button>
+                                    </div>
+
+                                    <div class="evidence-result-box hidden" id="evidence-result">
+                                        <div class="ev-status">
+                                            <i data-lucide="check-circle2" class="text-emerald"></i>
+                                            <div>
+                                                <h4>Audit Evidence Compiled Successfully!</h4>
+                                                <p>Generated index references 5 files under sha-256 hash checksums.</p>
+                                            </div>
+                                        </div>
+                                        <div class="ev-manifest">
+                                            <h5>Included Documents:</h5>
+                                            <ul id="evidence-manifest-list">
+                                                <!-- Dynamic list -->
+                                            </ul>
+                                        </div>
+                                        <button class="btn btn-emerald btn-sm btn-block" id="btn-download-evidence">
+                                            <i data-lucide="download"></i> Download Audit Evidence ZIP (Checksum Verified)
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAILURE INTEL & LESSONS TAB -->
+                <section id="lessons" class="view-section">
+                    <div class="view-header">
+                        <div>
+                            <h2>Lessons Learned & Failure Intelligence Engine</h2>
+                            <p class="view-description">Identify systemic failure patterns by correlation analysis of past maintenance, incident reports, and external industry databases.</p>
+                        </div>
+                    </div>
+
+                    <div class="lessons-layout">
+                        <!-- Heatmap / Correlation Chart Panel -->
+                        <div class="heatmap-panel">
+                            <div class="panel">
+                                <div class="panel-header">
+                                    <h3>Failure Mode Correlation Analysis</h3>
+                                    <span>Incident Data Match rate: 94.2%</span>
+                                </div>
+                                <div class="panel-body">
+                                    <p>The AI correlates mechanical failures with specific fluid variables, installation crews, and seasons to identify silent failure patterns.</p>
+                                    
+                                    <div class="correlation-grid">
+                                        <div class="corr-header">Component</div>
+                                        <div class="corr-header">High Vibration</div>
+                                        <div class="corr-header">Thermal Delta</div>
+                                        <div class="corr-header">Impeller Wear</div>
+                                        <div class="corr-header">Seal Leakage</div>
+
+                                        <div class="corr-label">Shaft / Bearings</div>
+                                        <div class="corr-cell high" title="92% correlation: Pump misalignment leads directly to axial vibration and heat generation.">92%</div>
+                                        <div class="corr-cell med" title="65% correlation">65%</div>
+                                        <div class="corr-cell low" title="12% correlation">12%</div>
+                                        <div class="corr-cell high" title="88% correlation: Out-of-spec vibration degrades mechanical seals in 30 days.">88%</div>
+
+                                        <div class="corr-label">Pneumatic Actuators</div>
+                                        <div class="corr-cell med" title="45% correlation">45%</div>
+                                        <div class="corr-cell high" title="82% correlation: Sticking valves trigger localized gas heating.">82%</div>
+                                        <div class="corr-cell low" title="8% correlation">8%</div>
+                                        <div class="corr-cell low" title="15% correlation">15%</div>
+
+                                        <div class="corr-label">Boiler Tubes</div>
+                                        <div class="corr-cell low" title="10% correlation">10%</div>
+                                        <div class="corr-cell high" title="90% correlation: Flue gas temperatures > 620C correlate with tube creep.">90%</div>
+                                        <div class="corr-cell med" title="58% correlation">58%</div>
+                                        <div class="corr-cell low" title="4% correlation">4%</div>
+                                    </div>
+                                    
+                                    <div class="heatmap-info">
+                                        <div class="legend-scale">
+                                            <span>Legend:</span>
+                                            <span class="box low">0-30% Low</span>
+                                            <span class="box med">30-70% Med</span>
+                                            <span class="box high">70-100% High</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proactive Push Warnings Panel -->
+                        <div class="warnings-panel">
+                            <div class="panel">
+                                <div class="panel-header">
+                                    <h3>Systemic Knowledge Push Bulletins</h3>
+                                    <span class="pulse-indicator"></span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="push-bulletin-list">
+                                        <div class="push-bulletin-card">
+                                            <div class="pb-header">
+                                                <span class="badge badge-warning">Systemic Risk</span>
+                                                <span class="pb-date">Today</span>
+                                            </div>
+                                            <h4>Cavitation Pattern in Centrifugal Pumps</h4>
+                                            <p>AI identified correlation across 3 pumps (Plant B) where intake pressure drops (< 1.4 bar) coupled with specific high-viscosity feeds resulted in impeller wear 6 months before scheduled service. Impeller wear is occurring on PMP-101 as feed viscosity increases.</p>
+                                            <div class="pb-action">
+                                                <span>Action Recommended: Inspect PMP-101 suction pressure within 7 days.</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="push-bulletin-card">
+                                            <div class="pb-header">
+                                                <span class="badge badge-info">External Lesson</span>
+                                                <span class="pb-date">5 Days Ago</span>
+                                            </div>
+                                            <h4>HP Boiler Tube Rupture (IOCL Refinery Incident)</h4>
+                                            <p>Analysis of public oil industry safety reports shows Tube creep was induced by chemical scaling during boiler feed water treatment shifts. System checked: Jamnagar BLR-302 feed records confirm pH shifts occurred last month. Warning flagged.</p>
+                                            <div class="pb-action">
+                                                <span>Action Recommended: Request Water Treatment Log Audit.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PRESENTATION & ARCHITECTURE TAB -->
+                <section id="presentation" class="view-section">
+                    <div class="view-header">
+                        <div>
+                            <h2>Project Pitch Deck & System Architecture</h2>
+                            <p class="view-description">View the strategic slide deck and the technical data pipelines that power the IndusBrain AI Unified Brain.</p>
+                        </div>
+                    </div>
+
+                    <div class="pitch-layout">
+                        <!-- Navigation tabs for Deck vs Architecture -->
+                        <div class="pitch-sub-header">
+                            <button class="pitch-tab active" data-pitch-tab="slides">Pitch Presentation</button>
+                            <button class="pitch-tab" data-pitch-tab="architecture">System Architecture</button>
+                        </div>
+
+                        <!-- Slide Deck Tab -->
+                        <div class="pitch-tab-content active" id="pitch-slides">
+                            <div class="slide-deck-container">
+                                <!-- Slides viewport -->
+                                <div class="slides-viewport" id="slides-viewport">
+                                    
+                                    <!-- Slide 1 -->
+                                    <div class="slide-item active" data-slide="1">
+                                        <div class="slide-content title-slide">
+                                            <div class="slide-badge">McKinsey Theme: Industrial Intelligence</div>
+                                            <h2>IndusBrain AI</h2>
+                                            <h3>Unified Asset & Operations Brain</h3>
+                                            <p class="slide-lead">Solving the Knowledge Fragmentation Crisis and the "Knowledge Cliff" in Asset-Intensive Industries.</p>
+                                            <div class="slide-footer-info">
+                                                <span>Pooja Sharma &bull; Chief Reliability Engineer</span>
+                                                <span>June 2026</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Slide 2 -->
+                                    <div class="slide-item" data-slide="2">
+                                        <div class="slide-content">
+                                            <h3>The Industrial Knowledge Crisis</h3>
+                                            <div class="slide-grid-2">
+                                                <div class="slide-points">
+                                                    <div class="point-box">
+                                                        <span class="num text-cyan">35%</span>
+                                                        <p><strong>Time Wasted:</strong> Operators and engineers waste 35% of shifts looking for drawings, checking specifications, or rewriting lost procedures.</p>
+                                                    </div>
+                                                    <div class="point-box">
+                                                        <span class="num text-orange">7-12</span>
+                                                        <p><strong>Disconnected Silos:</strong> Plant documentation exists across disconnected databases (P&IDs, ERP, SAP, work orders, PDFs, emails).</p>
+                                                    </div>
+                                                </div>
+                                                <div class="slide-points">
+                                                    <div class="point-box">
+                                                        <span class="num text-red">25%</span>
+                                                        <p><strong>The Knowledge Cliff:</strong> 25% of senior industrial operators are retiring this decade, taking undocumented operation knowledge with them forever.</p>
+                                                    </div>
+                                                    <div class="point-box">
+                                                        <span class="num text-purple">18-22%</span>
+                                                        <p><strong>Unplanned Downtime:</strong> Triggered because maintenance teams lack unified asset history and OEM context at the point of action.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Slide 3 -->
+                                    <div class="slide-item" data-slide="3">
+                                        <div class="slide-content">
+                                            <h3>The Solution: IndusBrain AI</h3>
+                                            <p class="slide-lead">A unified semantic brain connecting documents, specifications, regulations, and telemetry into a single graph.</p>
+                                            <div class="slide-features-grid">
+                                                <div class="feature-item">
+                                                    <i data-lucide="network" class="text-cyan"></i>
+                                                    <h4>Universal Ingest Pipeline</h4>
+                                                    <p>Scans PDFs, P&IDs, forms, and emails. Extracts tags (e.g. PMP-101) and builds a unified knowledge graph.</p>
+                                                </div>
+                                                <div class="feature-item">
+                                                    <i data-lucide="message-square" class="text-purple"></i>
+                                                    <h4>Expert RAG Copilot</h4>
+                                                    <p>Gives field technicians answers with source citations, direct document links, and mobile layout views.</p>
+                                                </div>
+                                                <div class="feature-item">
+                                                    <i data-lucide="wrench" class="text-emerald"></i>
+                                                    <h4>RCA & CAPA Agent</h4>
+                                                    <p>Fuses OEM guides, sensor logs, and order history to auto-generate 5-Whys and Ishikawa diagrams.</p>
+                                                </div>
+                                                <div class="feature-item">
+                                                    <i data-lucide="shield-alert" class="text-orange"></i>
+                                                    <h4>Regulatory Sentinel</h4>
+                                                    <p>Maps procedures against laws (Factory Act, PESO, OISD) to identify compliance gaps.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Slide 4 -->
+                                    <div class="slide-item" data-slide="4">
+                                        <div class="slide-content">
+                                            <h3>Business Impact & ROI</h3>
+                                            <p class="slide-lead">Transforming operations from reactive firefighting to predictive intelligence.</p>
+                                            <table class="slide-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Metric Affected</th>
+                                                        <th>Traditional Search</th>
+                                                        <th>IndusBrain AI</th>
+                                                        <th>Target Impact</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Time-to-Answer Queries</td>
+                                                        <td>42 minutes (average)</td>
+                                                        <td><strong>8 seconds</strong></td>
+                                                        <td>99.6% reduction in search time</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Unplanned Downtime</td>
+                                                        <td>18-22% (fragmentation-related)</td>
+                                                        <td><strong>< 2.5%</strong></td>
+                                                        <td>Saves millions in production loss</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Audit Evidence Generation</td>
+                                                        <td>3-5 days of manual compilation</td>
+                                                        <td><strong>45 seconds</strong></td>
+                                                        <td>Continuous compliance verification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Knowledge Retention</td>
+                                                        <td>Lost during retirements</td>
+                                                        <td><strong>Automatically parsed</strong></td>
+                                                        <td>Preserves legacy operational memory</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Slides controls -->
+                                <div class="slides-controls">
+                                    <button class="btn btn-outline" id="prev-slide"><i data-lucide="arrow-left"></i> Prev Slide</button>
+                                    <div class="slides-bullets" id="slides-bullets">
+                                        <!-- Dynamic bullets -->
+                                    </div>
+                                    <button class="btn btn-outline" id="next-slide">Next Slide <i data-lucide="arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- System Architecture Tab -->
+                        <div class="pitch-tab-content" id="pitch-architecture">
+                            <div class="architecture-container">
+                                <div class="arch-meta">
+                                    <h3>Unified Knowledge Engine Architecture</h3>
+                                    <p>An enterprise-grade pipeline transforming heterogeneous unstructured documents into verified point-of-need decisions.</p>
+                                </div>
+                                
+                                <div class="diagram-wrapper">
+                                    <!-- Embedded visual SVG architecture diagram -->
+                                    <svg viewBox="0 0 800 500" class="arch-svg">
+                                        <!-- Background grids -->
+                                        <defs>
+                                            <linearGradient id="cyan-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.2"/>
+                                                <stop offset="100%" stop-color="#4facfe" stop-opacity="0.05"/>
+                                            </linearGradient>
+                                        </defs>
+
+                                        <!-- Layer 1: Ingest Sources -->
+                                        <g transform="translate(20, 40)">
+                                            <rect x="0" y="0" width="160" height="420" rx="10" fill="rgba(30, 41, 59, 0.5)" stroke="#334155" stroke-width="1.5" />
+                                            <text x="15" y="25" fill="#94a3b8" font-family="Outfit" font-size="12" font-weight="600">INGEST SOURCES</text>
+                                            
+                                            <!-- Subcomponents -->
+                                            <g transform="translate(10, 45)">
+                                                <rect x="0" y="0" width="140" height="50" rx="6" fill="#1e293b" stroke="#00f2fe" stroke-width="1" />
+                                                <text x="12" y="30" fill="#f8fafc" font-family="Inter" font-size="11" font-weight="600">P&IDs & Drawings</text>
+                                                <text x="12" y="42" fill="#64748b" font-family="Inter" font-size="9">Scans, CAD, DWGs</text>
+                                            </g>
+                                            <g transform="translate(10, 110)">
+                                                <rect x="0" y="0" width="140" height="50" rx="6" fill="#1e293b" stroke="#6366f1" stroke-width="1" />
+                                                <text x="12" y="30" fill="#f8fafc" font-family="Inter" font-size="11" font-weight="600">Maintenance Records</text>
+                                                <text x="12" y="42" fill="#64748b" font-family="Inter" font-size="9">SAP, Excel, Work Logs</text>
+                                            </g>
+                                            <g transform="translate(10, 175)">
+                                                <rect x="0" y="0" width="140" height="50" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1" />
+                                                <text x="12" y="30" fill="#f8fafc" font-family="Inter" font-size="11" font-weight="600">Safety & SOPs</text>
+                                                <text x="12" y="42" fill="#64748b" font-family="Inter" font-size="9">Operating Manuals</text>
+                                            </g>
+                                            <g transform="translate(10, 240)">
+                                                <rect x="0" y="0" width="140" height="50" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1" />
+                                                <text x="12" y="30" fill="#f8fafc" font-family="Inter" font-size="11" font-weight="600">OEM Guides & Specs</text>
+                                                <text x="12" y="42" fill="#64748b" font-family="Inter" font-size="9">Asset Technical Manuals</text>
+                                            </g>
+                                            <g transform="translate(10, 305)">
+                                                <rect x="0" y="0" width="140" height="50" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1" />
+                                                <text x="12" y="30" fill="#f8fafc" font-family="Inter" font-size="11" font-weight="600">Regulatory Codes</text>
+                                                <text x="12" y="42" fill="#64748b" font-family="Inter" font-size="9">PESO, OISD, Factory Act</text>
+                                            </g>
+                                            <g transform="translate(10, 360)">
+                                                <rect x="0" y="0" width="140" height="50" rx="6" fill="#1e293b" stroke="#64748b" stroke-width="1" />
+                                                <text x="12" y="30" fill="#f8fafc" font-family="Inter" font-size="11" font-weight="600">Telemetry Logs</text>
+                                                <text x="12" y="42" fill="#64748b" font-family="Inter" font-size="9">Active Sensor Streams</text>
+                                            </g>
+                                        </g>
+
+                                        <!-- Connectors Layer 1 to Layer 2 -->
+                                        <path d="M 180 250 L 220 250" stroke="#475569" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+                                        <!-- Layer 2: Universal AI Processing Pipeline -->
+                                        <g transform="translate(230, 40)">
+                                            <rect x="0" y="0" width="180" height="420" rx="10" fill="rgba(30, 41, 59, 0.5)" stroke="#334155" stroke-width="1.5" />
+                                            <text x="15" y="25" fill="#94a3b8" font-family="Outfit" font-size="12" font-weight="600">AI AGENT PIPELINE</text>
+
+                                            <g transform="translate(15, 60)">
+                                                <rect x="0" y="0" width="150" height="60" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-dasharray="4" stroke-width="1.5"/>
+                                                <text x="10" y="25" fill="#38bdf8" font-family="Outfit" font-size="11" font-weight="600">1. Multimodal OCR</text>
+                                                <text x="10" y="40" fill="#f8fafc" font-family="Inter" font-size="10">LayoutLMv3 Layouts</text>
+                                                <text x="10" y="52" fill="#64748b" font-family="Inter" font-size="8">Digitizes scanned hand-marks</text>
+                                            </g>
+
+                                            <g transform="translate(15, 145)">
+                                                <rect x="0" y="0" width="150" height="60" rx="6" fill="#0f172a" stroke="#818cf8" stroke-width="1"/>
+                                                <text x="10" y="25" fill="#818cf8" font-family="Outfit" font-size="11" font-weight="600">2. Entity Extractor</text>
+                                                <text x="10" y="40" fill="#f8fafc" font-family="Inter" font-size="10">Regex-NER Models</text>
+                                                <text x="10" y="52" fill="#64748b" font-family="Inter" font-size="8">Maps PMP-101 tag formats</text>
+                                            </g>
+
+                                            <g transform="translate(15, 230)">
+                                                <rect x="0" y="0" width="150" height="60" rx="6" fill="#0f172a" stroke="#34d399" stroke-width="1"/>
+                                                <text x="10" y="25" fill="#34d399" font-family="Outfit" font-size="11" font-weight="600">3. Ontology Linker</text>
+                                                <text x="10" y="40" fill="#f8fafc" font-family="Inter" font-size="10">Semantic Resolver</text>
+                                                <text x="10" y="52" fill="#64748b" font-family="Inter" font-size="8">Maps specs to OISD norms</text>
+                                            </g>
+
+                                            <g transform="translate(15, 315)">
+                                                <rect x="0" y="0" width="150" height="65" rx="6" fill="#0f172a" stroke="#fbbf24" stroke-width="1"/>
+                                                <text x="10" y="25" fill="#fbbf24" font-family="Outfit" font-size="11" font-weight="600">4. Hybrid RAG (Graph)</text>
+                                                <text x="10" y="40" fill="#f8fafc" font-family="Inter" font-size="10">Vector + Cypher Retrieval</text>
+                                                <text x="10" y="52" fill="#64748b" font-family="Inter" font-size="8">Checks local vector spaces</text>
+                                            </g>
+                                        </g>
+
+                                        <!-- Connectors Layer 2 to Layer 3 -->
+                                        <path d="M 410 250 L 450 250" stroke="#475569" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+                                        <!-- Layer 3: Unified Knowledge Graph Store -->
+                                        <g transform="translate(460, 40)">
+                                            <rect x="0" y="0" width="150" height="420" rx="10" fill="rgba(30, 41, 59, 0.5)" stroke="#334155" stroke-width="1.5" />
+                                            <text x="12" y="25" fill="#94a3b8" font-family="Outfit" font-size="11" font-weight="600">KNOWLEDGE REPOSITORY</text>
+
+                                            <g transform="translate(15, 80)">
+                                                <ellipse cx="60" cy="50" rx="50" ry="30" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+                                                <text x="60" y="47" fill="#a78bfa" font-family="Outfit" font-size="11" font-weight="600" text-anchor="middle">Neo4j Graph</text>
+                                                <text x="60" y="59" fill="#f8fafc" font-family="Inter" font-size="9" text-anchor="middle">Semantic Nodes</text>
+                                            </g>
+
+                                            <g transform="translate(15, 230)">
+                                                <ellipse cx="60" cy="50" rx="50" ry="30" fill="#0f172a" stroke="#fb7185" stroke-width="2"/>
+                                                <text x="60" y="47" fill="#fb7185" font-family="Outfit" font-size="11" font-weight="600" text-anchor="middle">PgVector DB</text>
+                                                <text x="60" y="59" fill="#f8fafc" font-family="Inter" font-size="9" text-anchor="middle">Text Embeddings</text>
+                                            </g>
+                                            
+                                            <!-- Inter-linking DB lines -->
+                                            <path d="M 75 165 L 75 225" stroke="#64748b" stroke-dasharray="2" stroke-width="1.5" fill="none" />
+                                        </g>
+
+                                        <!-- Connectors Layer 3 to Layer 4 -->
+                                        <path d="M 610 250 L 640 250" stroke="#475569" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+                                        <!-- Layer 4: Actuation / End-points -->
+                                        <g transform="translate(650, 40)">
+                                            <rect x="0" y="0" width="130" height="420" rx="10" fill="rgba(30, 41, 59, 0.5)" stroke="#334155" stroke-width="1.5" />
+                                            <text x="12" y="25" fill="#94a3b8" font-family="Outfit" font-size="12" font-weight="600">ACTION STAGE</text>
+
+                                            <g transform="translate(10, 50)">
+                                                <rect x="0" y="0" width="110" height="60" rx="5" fill="#1e293b" stroke="#f472b6" stroke-width="1" />
+                                                <text x="8" y="25" fill="#f472b6" font-family="Outfit" font-size="10" font-weight="600">Expert Copilot</text>
+                                                <text x="8" y="40" fill="#94a3b8" font-family="Inter" font-size="8">Desktop / Mobile</text>
+                                                <text x="8" y="50" fill="#94a3b8" font-family="Inter" font-size="8">Field Assist RAG</text>
+                                            </g>
+
+                                            <g transform="translate(10, 140)">
+                                                <rect x="0" y="0" width="110" height="60" rx="5" fill="#1e293b" stroke="#4ade80" stroke-width="1" />
+                                                <text x="8" y="25" fill="#4ade80" font-family="Outfit" font-size="10" font-weight="600">Predictive RCA</text>
+                                                <text x="8" y="40" fill="#94a3b8" font-family="Inter" font-size="8">Telemetry match</text>
+                                                <text x="8" y="50" fill="#94a3b8" font-family="Inter" font-size="8">5-Whys engine</text>
+                                            </g>
+
+                                            <g transform="translate(10, 230)">
+                                                <rect x="0" y="0" width="110" height="60" rx="5" fill="#1e293b" stroke="#fbcfe8" stroke-width="1" />
+                                                <text x="8" y="25" fill="#e9d5ff" font-family="Outfit" font-size="10" font-weight="600">Compliance gaps</text>
+                                                <text x="8" y="40" fill="#94a3b8" font-family="Inter" font-size="8">PESO/OISD checks</text>
+                                                <text x="8" y="50" fill="#94a3b8" font-family="Inter" font-size="8">Auditor checklist</text>
+                                            </g>
+
+                                            <g transform="translate(10, 320)">
+                                                <rect x="0" y="0" width="110" height="70" rx="5" fill="#1e293b" stroke="#fca5a5" stroke-width="1" />
+                                                <text x="8" y="25" fill="#fca5a5" font-family="Outfit" font-size="10" font-weight="600">Lessons Learned</text>
+                                                <text x="8" y="40" fill="#94a3b8" font-family="Inter" font-size="8">Proactive bulletins</text>
+                                                <text x="8" y="50" fill="#94a3b8" font-family="Inter" font-size="8">Cross-plant match</text>
+                                            </g>
+                                        </g>
+
+                                        <!-- SVG Definitions -->
+                                        <defs>
+                                            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569" />
+                                            </marker>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>
