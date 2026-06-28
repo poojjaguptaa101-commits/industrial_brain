@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # IndusBrain AI: Unified Asset & Operations Brain
 
 **IndusBrain AI** is a full-stack industrial knowledge intelligence platform that aggregates heterogeneous documents (P&IDs, engineering drawings, SOPs, OEM manuals, logs) and makes their collective intelligence queryable, actionable, and continuously updated.
@@ -90,3 +91,6 @@ NEO4J_USER=neo4j
 NEO4J_PASSWORD=password
 ```
 *(If no API keys are provided, the backend automatically falls back to offline mock algorithms so the prototype remains 100% stable out-of-the-box.)*
+=======
+# industrial_brain
+>>>>>>> c47df6ff1caf09f1884bfb26054cfd45576421a5
